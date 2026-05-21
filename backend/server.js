@@ -21,7 +21,11 @@ const connectDB = async () => {
   try {
 await connect(process.env.MONGO_URI);
   console.log("DB connected");
-    app.listen(4000, () => console.log("server listening on port 4000.."));
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () =>
+  console.log(`server listening on port ${PORT}..`)
+);
   } catch (err) {
     console.log("err in DB connection", err.message);
   }
