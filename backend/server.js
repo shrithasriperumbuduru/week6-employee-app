@@ -3,6 +3,8 @@ import { connect } from "mongoose";
 import cors from "cors";
 import { empRoute } from "./APIs/empApp.js";
 const app = exp();
+import dotenv from "dotenv";
+dotenv.config();
 //add cors middleware
 app.use(
   cors({
@@ -17,9 +19,8 @@ app.use("/emp-api", empRoute);
 //DB connection
 const connectDB = async () => {
   try {
-await connect(
-  "mongodb://shritha:shritha123@ac-kx3nvqe-shard-00-00.3hjvrvy.mongodb.net:27017,ac-kx3nvqe-shard-00-01.3hjvrvy.mongodb.net:27017,ac-kx3nvqe-shard-00-02.3hjvrvy.mongodb.net:27017/shrithaDB?ssl=true&replicaSet=atlas-64nlwe-shard-0&authSource=admin&appName=Cluster0"
-);  console.log("DB connected");
+await connect(process.env.MONGO_URI);
+  console.log("DB connected");
     app.listen(4000, () => console.log("server listening on port 4000.."));
   } catch (err) {
     console.log("err in DB connection", err.message);
