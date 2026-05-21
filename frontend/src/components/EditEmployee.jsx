@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
-const BaseUrl=import.meta.env.Vite_Url || "http://localhost:4000";
+const BaseUrl=import.meta.env.Vite_Url || "https://week6-employee-app.onrender.com";
 function EditEmployee() {
   const {
     register,

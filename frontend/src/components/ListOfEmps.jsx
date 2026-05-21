@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-const BaseUrl=import.meta.env.Vite_Url || "http://localhost:4000";
+const BaseUrl=import.meta.env.Vite_Url || "https://week6-employee-app.onrender.com";
 function ListOfEmps() {
   const [emps, setEmps] = useState([]);
   const navigate = useNavigate();
